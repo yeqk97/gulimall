@@ -69,4 +69,10 @@ public class CategoryServiceImpl extends
         }
         return Collections.emptyList();
     }
+
+    @Override
+    public void removeMenuByIds(List<Long> asList) {
+        //TODO check if used by other entities
+        baseMapper.deleteBatchIds(asList);
+    }
 }
