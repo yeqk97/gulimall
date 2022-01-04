@@ -1,4 +1,3 @@
-
 spring:
   cloud:
     gateway:
@@ -11,13 +10,24 @@ spring:
           uri: https://www.qq.com
           predicates:
             - Query=url, qq
+
+
         - id: product_route
           uri: lb://gulimall-product
           predicates:
             - Path=/api/product/**
           filters:
-            # http://localhost:18888/api/product/category/list/tree  ->
+            # http://localhost:18888/api/product/category/list/tree  -> http://localhost:10000/product/category/list/tree
             - RewritePath=/api/?(?<segment>.*), /$\{segment}
+
+        - id: third_party_route
+          uri: lb://gulimall-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            # http://localhost:18888/api/thirdparty/oss/policy  -> http://localhost:30000/oss/policy
+            - RewritePath=/api/thirdparty?(?<segment>.*), /$\{segment}
+
         - id: admin_route
           uri: lb://renren-fast
           predicates:

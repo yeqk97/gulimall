@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+server:
+  port: 30000
+
+oci:
+  config-location: "~/.oci/config"
+  config-profile: "DEFAULT"
+  region: "eu-frankfurt-1"
+  namespace: "frghzmwrecdg"
+  bucket-name: "gulimall"

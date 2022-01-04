@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gulimall-third-party
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: ddbfdad8-e949-4175-af62-69f8d161a188
+        shared-configs:
+          - data-id: oss.yaml
+            group: DEFAULT_GROUP
+            refresh: true
